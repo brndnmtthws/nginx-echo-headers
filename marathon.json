@@ -1,0 +1,30 @@
+{
+  "id": "/nginx-echo-headers",
+  "cpus": 1,
+  "mem": 256,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "brndnmtthws/nginx-echo-headers",
+      "network": "BRIDGE",
+      "portMappings": [{
+              "containerPort": 8080,
+              "hostPort": 0,
+              "servicePort": 10000
+      }]
+    }
+  },
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "gracePeriodSeconds": 60,
+      "intervalSeconds": 10,
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "maxConsecutiveFailures": 2
+  }],
+  "labels": {
+    "HAPROXY_GROUP": "external"
+  }
+}
