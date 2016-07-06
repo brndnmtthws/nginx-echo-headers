@@ -1,5 +1,5 @@
-# nginx-echo-sleep
+# nginx-echo-headers
 
-A simple tool for simulating slow HTTP responses.
+A simple tool for debugging HTTP requests. nginx will return all request headers and body to the client.
 
-For the Docker image, see https://hub.docker.com/r/brndnmtthws/nginx-echo-sleep/
+For the Docker image, see https://hub.docker.com/r/brndnmtthws/nginx-echo-headers/
