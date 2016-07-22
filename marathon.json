@@ -1,7 +1,7 @@
 {
   "id": "/nginx-echo-headers",
-  "cpus": 1,
-  "mem": 256,
+  "cpus": 0.1,
+  "mem": 128,
   "instances": 1,
   "container": {
     "type": "DOCKER",
