@@ -1,4 +1,4 @@
-# [nginx-echo-headers](https://diddyinc.com/)
+# nginx-echo-headers
 
 A simple tool for debugging HTTP requests. nginx will return all request headers and body to the client.
 
