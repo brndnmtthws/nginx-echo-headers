@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: header-app
+  namespace: test
+  labels:
+    app: header
+spec:
+  containers:
+    - name: header-app
+      image: brndnmtthws/nginx-echo-headers
+      imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: header-service
+  namespace: test
+spec:
+  selector:
+    app: header
+  ports:
+    - port: 8080 # Default port for image
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: header-ing
+  namespace: test
+spec:
+  entryPoints:                      # [1]
+    - web
+  routes:                           # [2]
+  - kind: Rule
+    # Enter your application host dns name
+    match: Host(`change-me.com`) # [3]
+    services:                       # [4]
+    - kind: Service
+      name: header-service
+      namespace: test
+      port: 8080                   # [5]

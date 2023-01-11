@@ -4,7 +4,7 @@ A simple tool for debugging HTTP requests. nginx will return all request headers
 
 For the Docker image, see https://hub.docker.com/r/brndnmtthws/nginx-echo-headers/
 
-Try running it like so:
+### Try running it like so:
 
 ```ShellSession
 $ docker run -p 8080:8080 brndnmtthws/nginx-echo-headers
@@ -25,7 +25,7 @@ Status: Downloaded newer image for brndnmtthws/nginx-echo-headers:latest
 2019/01/24 13:56:02 [info] 7#7: *1 client 172.17.0.1 closed keepalive connection
 ```
 
-Then test it (this example uses [httpie](https://httpie.org/)):
+### Then test it (this example uses [httpie](https://httpie.org/)):
 
 ```ShellSession
 $ http localhost:8080
@@ -42,4 +42,10 @@ User-Agent: HTTPie/1.0.2
 Accept-Encoding: gzip, deflate
 Accept: */*
 Connection: keep-alive
+```
+
+### Deploy in kubernetes clusters
+
+```ShellSession
+$ kubectl apply -f kubernetes-manifest.yaml
 ```
