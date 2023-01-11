@@ -47,5 +47,5 @@ Connection: keep-alive
 ### Deploy in kubernetes clusters
 
 ```ShellSession
-kubectl apply -f kubernetes-manifest.yaml
+$ kubectl apply -f kubernetes-manifest.yaml
 ```
